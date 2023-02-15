@@ -9,4 +9,8 @@ attr_reader :name, :age, :scores
   def log_score(score)
     @scores.push(score)
   end
+
+  def grade
+    @scores.sum(0.0) / @scores.size
+  end
 end
