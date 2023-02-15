@@ -2,7 +2,7 @@ require 'rspec'
 require './lib/course'
 require './lib/student'
 
-RSpec.describe Student do
+RSpec.describe Course do
   before(:each) do
     @course = Course.new("Calculus", 2)
     @student1 = Student.new({name: "Morgan", age: 21})
