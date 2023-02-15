@@ -5,4 +5,8 @@ attr_reader :name, :age, :scores
     @age = student_details[:age]
     @scores = []
   end
+
+  def log_score(score)
+    @scores.push(score)
+  end
 end
