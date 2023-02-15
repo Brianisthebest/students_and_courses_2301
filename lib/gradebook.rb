@@ -1,13 +1,10 @@
 class Gradebook
   attr_reader :instructor, 
-              :courses, 
-              :students_below
+              :courses
 
   def initialize(instructor)
     @instructor = instructor
     @courses = []
-   
-    @students_below = []
   end
 
   def add_course(course)
@@ -18,8 +15,8 @@ class Gradebook
     course_name = @courses.map do |course|
       course.name
     end.flatten
-    students =[]
-
+    
+    students = []
     @courses.each do |student|
       students << student.students
     end
@@ -27,5 +24,20 @@ class Gradebook
         name: course_name,
         students: students
       }
+  end
+
+  def students_below(threshold)
+    students = []
+    @courses.each do |course|
+      students << course.students
+    end
+    students_below = []
+    students_below << students.each do |student|
+      student.select do |grade|
+        grade.grade <= threshold
+      end
+      require 'pry'; binding.pry
+      students_below
+    end
   end
 end

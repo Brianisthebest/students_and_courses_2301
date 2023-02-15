@@ -36,7 +36,6 @@ RSpec.describe Gradebook do
 
     it 'can list students in that course' do
       @gradebook.add_course(@course1)
-      # @gradebook.add_course(@course2)
       @course1.enroll(@student1)
       @course1.enroll(@student2)
 
@@ -46,8 +45,11 @@ RSpec.describe Gradebook do
     it 'can find students below average scores' do
       @gradebook.add_course(@course1)
       @course1.enroll(@student1)
+      @course1.enroll(@student2)
       @student1.log_score(50)
       @student1.log_score(50)
+      @student2.log_score(100)
+      @student2.log_score(100)
 
       expect(@gradebook.students_below(60)).to eq([@student1])
     end
