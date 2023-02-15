@@ -1,5 +1,5 @@
 require 'rspec'
-require '.lib/gradebook'
+require './lib/gradebook'
 require './lib/course'
 require './lib/student'
 
@@ -24,3 +24,4 @@ RSpec.describe Gradebook do
       expect(@gradebook.students_below).to eq([])
     end
   end
+end
