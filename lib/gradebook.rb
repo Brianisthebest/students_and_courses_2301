@@ -15,7 +15,6 @@ class Gradebook
     course_name = @courses.map do |course|
       course.name
     end.flatten
-    
     students = []
     @courses.each do |student|
       students << student.students
