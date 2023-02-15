@@ -10,4 +10,11 @@ attr_reader :name, :capacity, :students, :course_full
   def full?
     @course_full
   end
+
+  def enroll(student)
+    @students.push(student)
+    if @students.size == @capacity
+      @course_full = true
+    end
+  end
 end

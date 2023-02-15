@@ -21,11 +21,15 @@ RSpec.describe Student do
 
   describe '#enroll' do
     it 'enrolls a student' do
-      course.enroll(@student1)
-      course.enroll(@student2)
+      @course.enroll(@student1)
 
-      expect(course.students).to eq([@student1, @student2])
-      expect(course.full?).to eq(true)
+      expect(@course.students).to eq([@student1])
+      expect(@course.full?).to eq(false)
+      
+      @course.enroll(@student2)
+
+      expect(@course.students).to eq([@student1, @student2])
+      expect(@course.full?).to eq(true)
     end
   end
 end
