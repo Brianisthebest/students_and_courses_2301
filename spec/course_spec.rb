@@ -10,9 +10,12 @@ RSpec.describe Student do
   end
 
   describe '#initialize' do
-    expect(@course).to be_a(Course)
-    expect(@course.name).to eq("Calculus")
-    expect(@course.capacity).to eq(2)
-    expect(@course.students).to eq([])
-    expect(course.full?).to eq(false)
-  end
+    it 'exists' do
+      expect(@course).to be_a(Course)
+      expect(@course.name).to eq("Calculus")
+      expect(@course.capacity).to eq(2)
+      expect(@course.students).to eq([])
+      expect(@course.full?).to eq(false)
+    end
+  end 
+end
