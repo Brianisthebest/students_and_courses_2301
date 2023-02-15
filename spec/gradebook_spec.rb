@@ -31,7 +31,25 @@ RSpec.describe Gradebook do
       @gradebook.add_course(@course2)
       @gradebook.add_course(@course3)
 
-      expect(@gradebook.courses).to eq([@course1, @course2, @course})
+      expect(@gradebook.courses).to eq([@course1, @course2, @course3])
+    end
+
+    it 'can list students in that course' do
+      @gradebook.add_course(@course1)
+      # @gradebook.add_course(@course2)
+      @course1.enroll(@student1)
+      @course1.enroll(@student2)
+
+      expect(@gradebook.list_all_students).to be_a(Hash)
+    end
+
+    it 'can find students below average scores' do
+      @gradebook.add_course(@course1)
+      @course1.enroll(@student1)
+      @student1.log_score(50)
+      @student1.log_score(50)
+
+      expect(@gradebook.students_below(60)).to eq([@student1])
     end
   end
 end
